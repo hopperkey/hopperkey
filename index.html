@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Hopper Console | License Key - Free Key</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="overlay active" id="bootOverlay">
+    <div class="boot-modal">
+      <div class="spinner-ring"></div>
+      <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 10px;">Hopper đang xác thực máy chủ</h2>
+      <div class="console-text" id="console-log" style="opacity: 0.5;">
+        Connecting to secure server...
+      </div>
+      <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6; margin-bottom: 30px;"> Đang thiết lập kết nối an toàn đến máy chủ. Vui lòng không tắt trình duyệt. </p>
+      <button class="modal-btn" id="enterBtn" onclick="enterApp()">TRUY CẬP</button>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <div class="mobile-header">
+      <div class="logo-area" style="margin:0;">
+        <div class="logo-icon">
+          <span class="material-symbols-rounded">shield</span>
+        </div>
+        <div class="logo-text">Hopper</div>
+      </div>
+      <button onclick="toggleMenu()" style="background:none;border:none;color:#fff;"> <span class="material-symbols-rounded" style="font-size:28px;">menu</span> </button>
+    </div>
+
+    <aside class="sidebar" id="mainSidebar">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <span class="material-symbols-rounded">shield</span>
+        </div>
+        <div>
+          <div class="logo-text">Hopper</div>
+          <div style="font-size:10px;color:var(--text-muted);font-weight:600;">Hệ Thống Tạo Key Tự Động - Uy Tín</div>
+        </div>
+      </div>
+
+      <div class="menu-label">Dashboard</div>
+      <div class="nav-btn active" onclick="switchTab('key', this)">
+        <span class="material-symbols-rounded">vpn_key</span> License Manager
+      </div>
+      <div class="nav-btn" onclick="switchTab('upgrade', this)">
+        <span class="material-symbols-rounded">rocket_launch</span> Nâng cấp VIP
+      </div>
+      <div class="nav-btn" onclick="switchTab('rights', this)">
+        <span class="material-symbols-rounded">lock_person</span> Quyền tư nhân
+      </div>
+      <div class="nav-btn" onclick="switchTab('warranty', this)">
+        <span class="material-symbols-rounded">verified</span> Chế độ bảo hành
+      </div>
+      <div class="nav-btn" onclick="switchTab('developer', this)">
+        <span class="material-symbols-rounded">code</span> Nhà phát triển
+      </div>
+      <div class="nav-btn" onclick="switchTab('partners', this)">
+        <span class="material-symbols-rounded">groups</span> Đối tác quan hệ
+      </div>
+      <div class="nav-btn" onclick="switchTab('reviews', this)">
+        <span class="material-symbols-rounded">star</span> Đánh giá người dùng
+      </div>
+
+      <div class="menu-label" style="margin-top:24px;">Hỗ trợ</div>
+      <div class="nav-btn" onclick="switchTab('policy', this)">
+        <span class="material-symbols-rounded">security</span> Chính sách
+      </div>
+      <div class="nav-btn" onclick="switchTab('download', this)">
+        <span class="material-symbols-rounded">download</span> Tải ứng dụng
+      </div>
+      <div class="nav-btn" onclick="window.open('https://zalo.me/0774642574')">
+        <span class="material-symbols-rounded">support_agent</span> Chat với Admin
+      </div>
+
+      <div style="margin-top:auto;padding:12px;background:rgba(255,255,255,0.03);border-radius:10px;display:flex;align-items:center;gap:10px;">
+        <div style="width:8px;height:8px;background:#10b981;border-radius:50%;box-shadow:0 0 10px #10b981;"></div>
+        <div style="font-size:11px;font-weight:600;color:#fff;">Server Online</div>
+      </div>
+    </aside>
+
+    <main class="main-view" onclick="closeMenu()">
+      <div class="content-wrapper">
+        <div id="tab-key" class="tab-content active">
+          <div class="tab-header animate-up">
+            <h1>License Dashboard</h1>
+            <p>Hệ thống cung cấp Key Free hàng ngày & Premium vĩnh viễn</p>
+          </div>
+
+          <div class="info-card animate-up delay-1">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <h3 style="font-size:16px;">KEY APP HOPPER</h3>
+              <span style="background:rgba(16,185,129,0.1);color:#10b981;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;">ACTIVE</span>
+            </div>
+            <div class="key-display-area">
+              <span id="key-text" class="key-code">Chưa có key nào...</span>
+              <button onclick="copyKey()" style="background:none;border:none;color:var(--text-muted);cursor:pointer;position:relative;"> 
+                <span class="material-symbols-rounded">content_copy</span> 
+                <span class="copy-feedback" id="copyFeedback">Đã sao chép!</span> 
+              </button>
+            </div>
+            <div id="keyStatus" class="key-missing" style="display:block;">
+              Key chưa có sẵn → Mua Premium hoặc GetKey trên app để sử dụng!
+            </div>
+            <button class="action-btn" onclick="copyKey()">Sao chép Key <span class="material-symbols-rounded">arrow_forward</span></button>
+          </div>
+
+          <div class="info-card animate-up delay-2" style="padding: 28px; position: relative; overflow: hidden; background: rgba(18,18,24,0.85); border: 1px solid rgba(59,130,246,0.2); border-radius: 20px; backdrop-filter: blur(12px); box-shadow: 0 8px 32px rgba(0,0,0,0.4);">
+            <div style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.06; filter: blur(50px); z-index: -1;"></div>
+            <h3 style="font-size: 22px; font-weight: 800; margin: 0 0 28px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center; letter-spacing: -0.5px;"> Hướng dẫn nhập Key nhanh chóng </h3>
+            <div style="display: flex; flex-direction: column; gap: 24px;">
+              <div class="step-item" style="display: flex; gap: 20px; align-items: flex-start; background: rgba(59,130,246,0.08); border-radius: 16px; padding: 20px; border: 1px solid rgba(59,130,246,0.18); transition: all 0.3s;">
+                <div style="min-width: 52px; height: 52px; background: var(--primary); color: white; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 20px; flex-shrink: 0; box-shadow: 0 0 20px rgba(59,130,246,0.5);">
+                  1
+                </div>
+                <div style="flex: 1;">
+                  <strong style="color: #fff; font-size: 16px;">Sao chép Key</strong>
+                  <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.7; color: var(--text-muted);"> Nhấn nút copy bên cạnh mã Key ở trên hoặc click trực tiếp vào phần hiển thị Key để sao chép nhanh. </p>
+                </div>
+              </div>
+              <div class="step-item" style="display: flex; gap: 20px; align-items: flex-start; background: rgba(59,130,246,0.08); border-radius: 16px; padding: 20px; border: 1px solid rgba(59,130,246,0.18); transition: all 0.3s;">
+                <div style="min-width: 52px; height: 52px; background: var(--primary); color: white; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 20px; flex-shrink: 0; box-shadow: 0 0 20px rgba(59,130,246,0.5);">
+                  2
+                </div>
+                <div style="flex: 1;">
+                  <strong style="color: #fff; font-size: 16px;">Kích hoạt trong App</strong>
+                  <p style="margin: 8px 0 0; font-size: 15px; line-height: 1.7; color: var(--text-muted);"> Mở <strong>App Hopper</strong> → Vào phần <strong>Key / License</strong> → Dán Key vừa copy vào ô nhập → Nhấn <strong>Đăng nhập / Kích hoạt</strong> → Enter để hoàn tất. </p>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 28px; padding: 16px; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); border-radius: 16px; text-align: center; font-size: 14px; color: #fbbf24; line-height: 1.6;">
+              <strong style="color: #ef4444;">Lưu ý quan trọng:</strong> Key chỉ hoạt động trên <strong>1 thiết bị (HWID/ID Device)</strong>. Nếu gặp lỗi, liên hệ Admin Zalo ngay để hỗ trợ!
+            </div>
+          </div>
+
+          <div class="premium-card animate-up delay-3" style="padding: 32px; position: relative; overflow: hidden;">
+            <div class="card-glow" style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.07; filter: blur(40px); z-index: -1;"></div>
+            <h3 style="font-size: 24px; font-weight: 800; margin-bottom: 24px; background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; text-align: center;"> Hopper App – Có thực sự đáng tải? </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+              <div class="pros-cons-column" style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                  <span class="material-symbols-rounded" style="font-size: 32px; color: #10b981;">check_circle</span>
+                  <h4 style="font-size: 20px; font-weight: 700; color: #10b981; margin: 0;">Nên tải nếu bạn...</h4>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px; color: var(--text-muted); line-height: 1.8;">
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #10b981; font-size: 20px;">✓</span> Muốn trải nghiệm mượt mà, ổn định, hiệu suất cao </li>
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #10b981; font-size: 20px;">✓</span> Cần mô phỏng mạng chuyên sâu: jitter, packet loss, drop, limited rate... </li>
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #10b981; font-size: 20px;">✓</span> Muốn full VIP: Quản lý cấu hình impair, Chế độ VPN, nút nổi, không giới hạn </li>
+                  <li style="display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #10b981; font-size: 20px;">✓</span> Được hỗ trợ 24/7 qua Zalo + bảo hành key (vĩnh viễn/tuần) </li>
+                </ul>
+              </div>
+              <div class="pros-cons-column" style="background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 16px; padding: 24px; backdrop-filter: blur(10px);">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+                  <span class="material-symbols-rounded" style="font-size: 32px; color: #ef4444;">cancel</span>
+                  <h4 style="font-size: 20px; font-weight: 700; color: #ef4444; margin: 0;">Không nên nếu...</h4>
+                </div>
+                <ul style="list-style: none; padding: 0; margin: 0; font-size: 15px; color: var(--text-muted); line-height: 1.8;">
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #ef4444; font-size: 20px;">✗</span> Không quan tâm đến mô phỏng mạng hay tạo độ trễ giả lag </li>
+                  <li style="margin-bottom: 12px; display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #ef4444; font-size: 20px;">✗</span> Lo ngại cài app từ nguồn không chính thức </li>
+                  <li style="display: flex; align-items: flex-start; gap: 10px;"> <span style="color: #ef4444; font-size: 20px;">✗</span> Không muốn đầu tư key Premium để mở full tính năng </li>
+                </ul>
+              </div>
+            </div>
+            <div style="margin-top: 28px; padding: 20px; background: rgba(59,130,246,0.12); border-radius: 16px; text-align: center; border: 1px solid var(--border-hover);">
+              <p style="font-size: 16px; font-weight: 700; color: #10b981; margin: 0; line-height: 1.6;"> Tóm lại: <span style="color: var(--text-main);">Nên tải mạnh mẽ</span> nếu bạn đam mê quyền riêng tư, tối ưu mạng & mô phỏng chuyên sâu.<br> Bản Free ổn để thử → Bản Plus đáng tiền nếu dùng thường xuyên! </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-upgrade" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Nâng cấp Premium</h1>
+            <p>Chọn gói - Chọn giá - Thanh toán nhanh - Nhận key tức thì từ Admin</p>
+          </div>
+
+          <div class="info-card animate-up delay-1">
+            <div class="package-selector">
+              <div class="package-btn selected" data-type="week">Tuần</div>
+              <div class="package-btn" data-type="forever">Vĩnh viễn</div>
+            </div>
+
+            <div class="price-options" id="pricesWeek" style="display:flex;">
+              <div class="price-btn selected" data-price="20000">20k</div>
+              <div class="price-btn" data-price="50000">50k</div>
+              <div class="price-btn" data-price="100000">100k</div>
+              <div class="price-btn" data-price="200000">200k</div>
+              <div class="price-btn" data-price="500000">500k</div>
+            </div>
+
+            <div class="price-options" id="pricesForever" style="display:none;">
+              <div class="price-btn selected" data-price="100000">100k</div>
+              <div class="price-btn" data-price="200000">200k</div>
+              <div class="price-btn" data-price="500000">500k</div>
+              <div class="price-btn" data-price="1000000">1 triệu</div>
+              <div class="price-btn" data-price="2000000">2 triệu</div>
+            </div>
+
+            <div class="custom-price-wrapper">
+              <input type="number" class="custom-price" placeholder="Tự nhập giá (VND)" min="10000" id="customPrice">
+            </div>
+
+            <div id="currentPrice" style="font-size: 32px; font-weight: 800; text-align: center; margin: 24px 0px; color: var(--primary); opacity: 1;">
+              20.000đ
+            </div>
+
+            <div class="qr-container">
+              <img id="paymentQR" src="https://img.vietqr.io/image/970415-888816885666-compact2.jpg?amount=20000&addInfo=MuaKeyHopper_Tuan_20000&accountName=VO%20MINH%20PHAT" alt="QR Thanh toán" style="filter: blur(0px);">
+            </div>
+
+            <ul class="features-list" id="featuresWeek" style="display:block;">
+              <li><span class="material-symbols-rounded">check_circle</span>Mở khóa tất cả tính năng VIP</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Hỗ trợ nhanh 24/7 qua Zalo</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Auto renew dễ dàng</li>
+            </ul>
+
+            <ul class="features-list" id="featuresForever" style="display:none;">
+              <li><span class="material-symbols-rounded">check_circle</span>Mở khóa toàn bộ chế độ VPN</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Tính năng đặc quyền & nhiều nút nổi</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Sử dụng không giới hạn thời gian</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Ưu tiên hỗ trợ VIP/ Gruop Zalo Kín</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Cập nhật miễn phí trọn đời các bản sau này</li>
+              <li><span class="material-symbols-rounded">check_circle</span>Bảo hành key vĩnh viễn nếu có vấn đề.</li>
+            </ul>
+
+            <div class="discount-wrapper">
+              <input type="text" class="discount-input" placeholder="Nhập mã giảm giá (nếu có)" id="discountCode">
+              <button class="action-btn secondary" style="padding:12px 32px;">Áp dụng</button>
+            </div>
+
+            <button class="action-btn" id="payButton" style="width:100%;background:var(--primary);color:white;font-size:16px;padding:16px;"> Thanh toán ngay qua Zalo </button>
+            <p class="payment-note"> • Key sẽ được gửi qua Zalo trong 1-5 phút sau khi thanh toán thành công<br> • Không hỗ trợ hoàn tiền sau khi nhận Key<br> • Vui lòng liên hệ Admin nếu có vấn đề </p>
+          </div>
+        </div>
+
+        <div id="tab-rights" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Quyền Tư Nhân VIP</h1>
+            <p>Bảo vệ tối đa danh tính & dữ liệu cá nhân của bạn</p>
+          </div>
+
+          <div class="premium-card animate-up delay-1">
+            <div class="feature-grid">
+              <div class="feature-item animate-up delay-1">
+                <span class="material-symbols-rounded feature-icon">visibility_off</span>
+                <div class="feature-title">Ẩn danh 100%</div>
+                <div class="feature-desc">Không lưu log hoạt động, IP ẩn hoàn toàn qua multi-layer proxy. Không ai biết bạn là ai không thu thập dữ liệu qua VPN</div>
+              </div>
+              <div class="feature-item animate-up delay-2">
+                <span class="material-symbols-rounded feature-icon">lock</span>
+                <div class="feature-title">Zero-Log Policy</div>
+                <div class="feature-desc">Hopper cam kết KHÔNG lưu bất kỳ dữ liệu nào về hoạt động duyệt web, thời gian kết nối VPN trong quá trình sử dụng App</div>
+              </div>
+              <div class="feature-item animate-up delay-3">
+                <span class="material-symbols-rounded feature-icon">group</span>
+                <div class="feature-title">Nhóm VIP Private Zalo</div>
+                <div class="feature-desc">Truy cập nhóm kín chỉ dành cho thành viên Premium, nhận tip cấu hình nâng cao & update sớm.</div>
+              </div>
+              <div class="feature-item animate-up delay-4">
+                <span class="material-symbols-rounded feature-icon">priority_high</span>
+                <div class="feature-title">Reset HWID/ ID Device Ưu tiên</div>
+                <div class="feature-desc">Reset thiết bị miễn phí 2 lần/tháng (thay vì mất phí như user thường). Liên hệ admin nhanh chóng.</div>
+              </div>
+              <div class="feature-item animate-up delay-1">
+                <span class="material-symbols-rounded feature-icon">dns</span>
+                <div class="feature-title">Update Renew Key</div>
+                <div class="feature-desc">Trong quá trình sử dụng Key có vấn đề được Update gia hạn key hoặc đổi key khác.</div>
+              </div>
+              <div class="feature-item animate-up delay-2">
+                <span class="material-symbols-rounded feature-icon">power_off</span>
+                <div class="feature-title">Kill Switch VPN</div>
+                <div class="feature-desc">Tự động ngắt VPN nếu có VPN bên thứ 3, tránh lỗi VPN trong quá trình mô phỏng</div>
+              </div>
+              <div class="feature-item animate-up delay-3">
+                <span class="material-symbols-rounded feature-icon">hub</span>
+                <div class="feature-title">Kết nối định tuyến</div>
+                <div class="feature-desc">Sử dụng API VpnService trực tiếp có sẵn trên Android để dựng VPN can thiệp mạng vật lí , thông số kĩ thuật để mô phỏng</div>
+              </div>
+              <div class="feature-item animate-up delay-4">
+                <span class="material-symbols-rounded feature-icon">speed</span>
+                <div class="feature-title">No Bandwidth Limit</div>
+                <div class="feature-desc">Tốc độ không giới hạn hay gián đoạn tích hợp chặn download/upload thoải mái.</div>
+              </div>
+            </div>
+            <p style="text-align:center;color:var(--text-muted);margin-top:30px;font-style:italic;"> Quyền tư nhân chỉ kích hoạt khi bạn sở hữu gói Premium Vĩnh viễn hoặc Tuần (tối thiểu 50k đổ lên). </p>
+          </div>
+        </div>
+
+        <div id="tab-warranty" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Chế Độ Bảo Hành</h1>
+            <p>Hỗ trợ trọn đời - Cam kết thay key nếu lỗi</p>
+          </div>
+
+          <div class="premium-card animate-up delay-1">
+            <div class="feature-grid">
+              <div class="feature-item animate-up delay-1">
+                <span class="material-symbols-rounded feature-icon">security</span>
+                <div class="feature-title">Bảo hành vĩnh viễn</div>
+                <div class="feature-desc">Key Vĩnh viễn được bảo hành suốt đời (trừ vi phạm chính sách). Key Tuần bảo hành đến hết hạn.</div>
+              </div>
+              <div class="feature-item animate-up delay-2">
+                <span class="material-symbols-rounded feature-icon">update</span>
+                <div class="feature-title">Thay key mới miễn phí</div>
+                <div class="feature-desc">Nếu key lỗi kỹ thuật (server down, HWID/ ID Device conflict do lỗi hệ thống), thay mới trong 5 phút.</div>
+              </div>
+              <div class="feature-item animate-up delay-3">
+                <span class="material-symbols-rounded feature-icon">support_agent</span>
+                <div class="feature-title">Hỗ trợ 24/7 VIP</div>
+                <div class="feature-desc">Chat Zalo ưu tiên, phản hồi dưới 3 phút. Có team Dev/Testing hỗ trợ fix bug app nếu cần.</div>
+              </div>
+              <div class="feature-item animate-up delay-4">
+                <span class="material-symbols-rounded feature-icon">history</span>
+                <div class="feature-title">Lịch sử bảo hành minh bạch</div>
+                <div class="feature-desc">Mọi ticket mua hàng bảo hành được lưu log rõ ràng, bạn có thể yêu cầu xem lịch sử bất cứ lúc nào.</div>
+              </div>
+              <div class="feature-item animate-up delay-1">
+                <span class="material-symbols-rounded feature-icon">build</span>
+                <div class="feature-title">Bảo hành phần cứng</div>
+                <div class="feature-desc">Fix lỗi app do xung đột phần cứng (HWID/ID Device conflict) miễn phí.</div>
+              </div>
+              <div class="feature-item animate-up delay-2">
+                <span class="material-symbols-rounded feature-icon">system_update</span>
+                <div class="feature-title">Update app miễn phí</div>
+                <div class="feature-desc">Cập nhật phiên bản mới nhất, fix bug & thêm tính năng miễn phí đặc quyền.</div>
+              </div>
+              <div class="feature-item animate-up delay-3">
+                <span class="material-symbols-rounded feature-icon">tune</span>
+                <div class="feature-title">Hỗ trợ cấu hình</div>
+                <div class="feature-desc">Hướng dẫn tối ưu cấu hình VPN cho thiết bị của bạn.</div>
+              </div>
+              <div class="feature-item animate-up delay-4">
+                <span class="material-symbols-rounded feature-icon">refresh</span>
+                <div class="feature-title">Bảo hành HWID reset</div>
+                <div class="feature-desc">Hỗ trợ reset HWID / ID Device khi thay máy, đổi thiết bị.</div>
+              </div>
+              <div class="feature-item animate-up delay-1">
+                <span class="material-symbols-rounded feature-icon">verified_user</span>
+                <div class="feature-title">Kiểm tra key định kỳ</div>
+                <div class="feature-desc">Hệ thống tự check & cảnh báo nếu key sắp lỗi hoặc cần update.</div>
+              </div>
+              <div class="feature-item animate-up delay-2">
+                <span class="material-symbols-rounded feature-icon">backup</span>
+                <div class="feature-title">Backup key an toàn</div>
+                <div class="feature-desc">Key được lưu server mã hóa, khôi phục nhanh nếu mất.</div>
+              </div>
+              <div class="feature-item animate-up delay-3">
+                <span class="material-symbols-rounded feature-icon">speed</span>
+                <div class="feature-title">Ưu tiên tốc độ cao</div>
+                <div class="feature-desc">User được trải nghiệm mượt mà tốc độ cao của đặc quyền App.</div>
+              </div>
+              <div class="feature-item animate-up delay-4">
+                <span class="material-symbols-rounded feature-icon">group</span>
+                <div class="feature-title">Nhóm VIP hỗ trợ riêng</div>
+                <div class="feature-desc">Truy cập group Zalo kín để hỏi đáp nhanh, nhận tip cấu hình nâng cao hoặc mẹo Fix.</div>
+              </div>
+            </div>
+
+            <div style="margin-top:30px;padding:20px;background:rgba(239,68,68,0.1);border-radius:16px;text-align:center;color:#ef4444;">
+              <strong>Lưu ý quan trọng:</strong> Bảo hành KHÔNG áp dụng nếu chia sẻ key, dùng cho mục đích bất hợp pháp, lạm dụng reset HWID/ ID Divice (>2 lần/tháng), tự chỉnh sửa mã nguồn app.
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-developer" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Nhà Phát Triển</h1>
+            <p>Người đứng sau hệ thống Hopper - Dev độc lập Việt Nam</p>
+          </div>
+
+          <div class="premium-card animate-up delay-1">
+            <div class="dev-info">
+              <div class="dev-avatar">
+                <span class="material-symbols-rounded" style="font-size:80px;color:white;">code</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 8px; justify-content: center;" class="dev-name-container">
+                <div class="dev-name">VÕ MINH PHÁT</div>
+                <span class="material-symbols-rounded verified-badge">verified</span>
+              </div>
+              <div class="dev-title">CYBER SECURITY • VPN ARCHITECT • INDIE DEV - DEVOPS</div>
+              <p style="font-size:17px;margin:30px 0;color:var(--text-muted);line-height:1.8;"> Developer độc lập chuyên xây dựng công cụ bảo mật & VPN tối ưu cho cộng đồng Việt Nam<br> Hopper ra đời từ ngày 22/7/2025 với sứ mệnh: <strong style="color:#00ff9d;">Ổn định - Giá rẻ - An toàn tuyệt đối.</strong> </p>
+              <div class="dev-bank">
+                VietinBank:
+                <span style="font-size:26px;color:#00ff9d;">888816885666</span>
+                <br>
+                <span style="font-size:20px;color:white;margin-top:12px;display:block;">VO MINH PHAT</span>
+              </div>
+
+              <div class="qr-container" style="margin:50px auto;max-width:340px;">
+                <img id="devQR" src="https://img.vietqr.io/image/970415-888816885666-compact2.jpg?amount=50000&addInfo=HoTroDevHopper&accountName=VO%20MINH%20PHAT" alt="QR ủng hộ dev">
+                <p style="margin-top:24px;color:var(--text-muted);">Quét để ủng hộ dev (50.000đ) - Cảm ơn bạn nhiều!</p>
+              </div>
+
+              <p style="text-align:center;color:var(--text-muted);line-height:1.8;font-size:15px;margin-top:30px;"> Liên hệ hợp tác / báo lỗi / góp ý: <strong style="color:#00ff9d;">Zalo 0774642574</strong><br> Cảm ơn sự ủng hộ của bạn dành cho Hopper ! 🚀 </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="tab-partners" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Đối Tác Quan Hệ</h1>
+            <p>Các đối tác chiến lược hỗ trợ Hopper phát triển bền vững và an toàn</p>
+          </div>
+
+          <div class="premium-card animate-up delay-1" style="padding: 32px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+              <!-- Card 1 -->
+              <div class="partner-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(59,130,246,0.2); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                <div style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.05; border-radius: 20px; z-index: -1;"></div>
+                <div class="partner-avatar" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; color: white; box-shadow: 0 4px 20px rgba(59,130,246,0.3);">
+                  <span class="material-symbols-rounded">person</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 12px;">Vi Văn Tuyển</h4>
+                <p style="font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 16px;">Seller chuyên nghiệp về công cụ mô phỏng mạng. Hỗ trợ phân phối key Hopper ,đảm bảo giao dịch an toàn và nhanh chóng.</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span class="material-symbols-rounded" style="color: #10b981; font-size: 20px;">verified</span>
+                  <span style="font-size: 12px; color: #10b981; font-weight: 600;">Đối tác VIP</span>
+                </div>
+              </div>
+
+              <!-- Card 2 -->
+              <div class="partner-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(59,130,246,0.2); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                <div style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.05; border-radius: 20px; z-index: -1;"></div>
+                <div class="partner-avatar" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; color: white; box-shadow: 0 4px 20px rgba(59,130,246,0.3);">
+                  <span class="material-symbols-rounded">person</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 12px;">Chu Tiến Đạt</h4>
+                <p style="font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 16px;">Chuyên gia tư vấn App và là CTV uy tín. Hợp tác phát triển đóng góp tính năng mới cho Hopper, tập trung vào độ an toàn và hiệu suất cao.</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span class="material-symbols-rounded" style="color: #10b981; font-size: 20px;">verified</span>
+                  <span style="font-size: 12px; color: #10b981; font-weight: 600;">Đối tác VIP</span>
+                </div>
+              </div>
+
+              <!-- Card 3 -->
+              <div class="partner-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(59,130,246,0.2); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                <div style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.05; border-radius: 20px; z-index: -1;"></div>
+                <div class="partner-avatar" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; color: white; box-shadow: 0 4px 20px rgba(59,130,246,0.3);">
+                  <span class="material-symbols-rounded">person</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 12px;">Github Copilot</h4>
+                <p style="font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 16px;">Là nền tảng lớn hổ trợ cho ứng dụng Hopper phát triển, nguồn tài liệu lớn và marketing tổng hợp chiến lược.</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span class="material-symbols-rounded" style="color: #10b981; font-size: 20px;">verified</span>
+                  <span style="font-size: 12px; color: #10b981; font-weight: 600;">Đối tác VIP</span>
+                </div>
+              </div>
+
+              <!-- Card 4 -->
+              <div class="partner-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(59,130,246,0.2); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                <div style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.05; border-radius: 20px; z-index: -1;"></div>
+                <div class="partner-avatar" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; color: white; box-shadow: 0 4px 20px rgba(59,130,246,0.3);">
+                  <span class="material-symbols-rounded">person</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 12px;">Google Console </h4>
+                <p style="font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 16px;">Tiềm năng tổng hợp lớn , hệ thống cung cấp cho App Hopper sự ổn định và là nguồn lưu trữ lớn về mặt dữ liệu và kỹ thuật công nghệ.</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span class="material-symbols-rounded" style="color: #10b981; font-size: 20px;">verified</span>
+                  <span style="font-size: 12px; color: #10b981; font-weight: 600;">Đối tác VIP</span>
+                </div>
+              </div>
+
+              <!-- Card 5 -->
+              <div class="partner-card" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(59,130,246,0.2); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; backdrop-filter: blur(10px); transition: all 0.3s; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+                <div style="position: absolute; inset: 0; background: var(--primary-gradient); opacity: 0.05; border-radius: 20px; z-index: -1;"></div>
+                <div class="partner-avatar" style="width: 80px; height: 80px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 32px; color: white; box-shadow: 0 4px 20px rgba(59,130,246,0.3);">
+                  <span class="material-symbols-rounded">person</span>
+                </div>
+                <h4 style="font-size: 20px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 12px;">DB Engineer</h4>
+                <p style="font-size: 14px; color: var(--text-muted); text-align: center; line-height: 1.6; margin-bottom: 16px;">Đối tác marketing và cộng đồng. Xây dựng mạng lưới người dùng Hopper rộng lớn, chia sẻ kinh nghiệm sử dụng hiệu quả.</p>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+                  <span class="material-symbols-rounded" style="color: #10b981; font-size: 20px;">verified</span>
+                  <span style="font-size: 12px; color: #10b981; font-weight: 600;">Đối tác VIP</span>
+                </div>
+              </div>
+            </div>
+            <p style="text-align: center; margin-top: 32px; color: var(--text-muted); font-size: 14px;">Hopper tự hào hợp tác với các seller và hệ thống chuyên nghiệp, đảm bảo dịch vụ chất lượng cao và an toàn cho mọi người dùng.</p>
+          </div>
+        </div>
+
+        <div id="tab-reviews" class="tab-content">
+  <div class="tab-header animate-up">
+    <h1>Đánh Giá Người Dùng</h1>
+    <p>Ý kiến thực tế từ cộng đồng - Sự hài lòng về App</p>
+  </div>
+
+  <div class="review-container-pro" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 24px; padding: 16px; position: relative; margin: 28px 0; overflow: hidden; backdrop-filter: blur(10px); box-shadow: 0 10px 40px rgba(0,0,0,0.4);">
+  <h3 style="text-align:center; color:#fff; font-size:22px; margin:0 0 20px; background: linear-gradient(90deg, #3b82f6, #10b981); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">
+    Các lượt đánh giá tích cực về App
+  </h3>
+
+  <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 16px; background: #000; border: 1px solid rgba(59,130,246,0.3);">
+    <!-- Slider Track -->
+    <div id="sliderTrack" style="display: flex; height: 100%; width: 100%; transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform;">
+      <!-- Slide 1 -->
+      <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161326.jpg" 
+             alt="Free Fire Character Aurora" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_003803.jpg" 
+             alt="Rank Push AuroraVN" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+
+      <!-- Slide 3 - Thêm ảnh đẹp khác (cyberpunk girl) -->
+      <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260109_184721.jpg" 
+             alt="Cyberpunk Free Fire Style" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_160438.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_160604.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_160651.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_160808.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+     
+           <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_160859.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161001.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161039.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+     
+           <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161135.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161320.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_003800.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+            <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161331.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+     
+           <div class="slider-slide" style="min-width: 100%; height: 100%; flex-shrink: 0; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+        <img src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/IMG_20260111_161342.jpg" 
+             alt="Gaming Interface Dark Theme" 
+             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s;">
+      </div>
+      
+      
+    </div>
+
+    <!-- Navigation Buttons -->
+    <button onclick="prevSlide(event)" class="slider-btn prev" style="position: absolute; left: 1px; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; border-radius: 50%; background: rgba(0, 0, 0, 0.3); border: 1.5px solid rgba(255, 255, 255, 0.4); color: #ffffff; font-size: 24px; cursor: pointer; z-index: 999; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.3s; box-shadow: 0 0 20px rgba(255, 255, 255, 0.25); display: flex; align-items: center; justify-content: center;">
+  <span class="material-symbols-rounded" style="text-shadow: 0 0 10px rgba(255,255,255,0.5);">chevron_left</span>
+</button>
+
+<button onclick="nextSlide(event)" class="slider-btn next" style="position: absolute; right: 1px; top: 50%; transform: translateY(-50%); width: 45px; height: 45px; border-radius: 50%; background: rgba(0, 0, 0, 0.3); border: 1.5px solid rgba(255, 255, 255, 0.4); color: #ffffff; font-size: 24px; cursor: pointer; z-index: 999; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.3s; box-shadow: 0 0 20px rgba(255, 255, 255, 0.25); display: flex; align-items: center; justify-content: center;">
+  <span class="material-symbols-rounded" style="text-shadow: 0 0 10px rgba(255,255,255,0.5);">chevron_right</span>
+</button>
+
+
+
+    <!-- Dots Indicator -->
+    <div id="sliderDots" style="position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10;"></div>
+  </div>
+</div>
+
+
+
+
+            <!-- Nội dung thêm: Tổng hợp đánh giá -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 24px; margin-bottom: 24px;">
+              <div style="background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.25); border-radius: 16px; padding: 20px; text-align: center;">
+                <span class="material-symbols-rounded" style="font-size: 40px; color: #10b981; display: block; margin-bottom: 12px;">thumb_up</span>
+                <h4 style="font-size: 20px; color: #10b981; margin-bottom: 8px;">Mức độ hài lòng trung bình: 99%</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Hàng ngàn người dùng đánh giá cao sự ổn định và dễ sử dụng của Hopper.</p>
+              </div>
+              <div style="background: rgba(59,130,246,0.08); border: 1px solid rgba(59,130,246,0.25); border-radius: 16px; padding: 20px; text-align: center;">
+                <span class="material-symbols-rounded" style="font-size: 40px; color: #3b82f6; display: block; margin-bottom: 12px;">work_history</span>
+                <h4 style="font-size: 20px; color: #3b82f6; margin-bottom: 8px;">Kinh nghiệm người dùng: 5+ năm</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Từ game thủ đến chuyên gia, Hopper hỗ trợ đa dạng nhu cầu mô phỏng mạng.</p>
+              </div>
+              <div style="background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); border-radius: 16px; padding: 20px; text-align: center;">
+                <span class="material-symbols-rounded" style="font-size: 40px; color: #ef4444; display: block; margin-bottom: 12px;">shield</span>
+                <h4 style="font-size: 20px; color: #ef4444; margin-bottom: 8px;">Độ an toàn: 100% Safe</h4>
+                <p style="color: var(--text-muted); font-size: 14px;">Zero-log policy và bảo mật HWID đảm bảo dữ liệu cá nhân luôn được bảo vệ.</p>
+              </div>
+            </div>
+
+            <p style="text-align: center; color: var(--text-muted); font-size: 14px; font-style: italic;">Cảm ơn bạn đã tin dùng Hopper! Chia sẻ đánh giá của bạn qua Zalo để nhận ưu đãi đặc biệt.</p>
+          </div>
+        </div>
+
+        <div id="tab-policy" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Chính Sách</h1>
+            <p>Cam kết minh bạch, bảo vệ quyền lợi người dùng tối đa</p>
+          </div>
+
+          <div class="premium-card animate-up delay-1" style="padding: 28px;">
+            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid rgba(59,130,246,0.2); justify-content: center; flex-wrap: wrap;">
+              <span class="material-symbols-rounded" style="font-size: 36px; color: var(--primary);">code</span>
+              <div style="text-align: center;">
+                <div style="display: flex; align-items: center; gap: 8px; justify-content: center;">
+                  <strong style="font-size: 22px; color: #fff;">Võ Minh Phát</strong>
+                  <span class="material-symbols-rounded verified-badge" style="font-size: 24px;">verified</span>
+                </div>
+                <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">Developer Hopper • Cyber Security</div>
+              </div>
+            </div>
+
+            <div style="line-height: 2.1; font-size: 15px; color: var(--text-muted);">
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #10b981; flex-shrink: 0;">shield</span>
+                <div><b>Bảo mật dữ liệu:</b> Chỉ lưu HWID/ID Device để xác thực, không lưu thông tin cá nhân nhạy cảm.</div>
+              </div>
+
+                            <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #10b981; flex-shrink: 0;">no_accounts</span>
+                <div><b>Zero-Log Policy:</b> Không ghi lại bất kỳ hoạt động duyệt web, thời gian kết nối, nội dung truy cập.</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #10b981; flex-shrink: 0;">money_off</span>
+                <div><b>Hoàn tiền:</b> Hỗ trợ hoàn 100% trong 24h nếu key không hoạt động (chưa sử dụng).</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #fbbf24; flex-shrink: 0;">warning</span>
+                <div><b>Trách nhiệm người dùng:</b> Tự chịu trách nhiệm về mục đích sử dụng. Không hỗ trợ hoạt động vi phạm pháp luật.</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #ef4444; flex-shrink: 0;">block</span>
+                <div><b>Cấm sử dụng bất hợp pháp:</b> Không hỗ trợ, không bảo hành nếu dùng cho hoạt động vi phạm pháp luật.</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #ef4444; flex-shrink: 0;">share</span>
+                <div><b>Cấm chia sẻ key:</b> Mỗi key chỉ dùng trên 1 HWID/ID Device. Chia sẻ → khóa vĩnh viễn, không hoàn tiền.</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #fbbf24; flex-shrink: 0;">sync</span>
+                <div><b>Giới hạn reset HWID/ID Device:</b> Miễn phí 2 lần/tháng cho Premium, user thường có thể mất phí.</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #10b981; flex-shrink: 0;">update</span>
+                <div><b>Cập nhật miễn phí:</b> Toàn bộ người dùng nhận update app và server key miễn phí suốt đời.</div>
+              </div>
+
+              <div style="display: flex; gap: 14px; margin-bottom: 20px; align-items: flex-start;">
+                <span class="material-symbols-rounded" style="font-size: 24px; color: #3b82f6; flex-shrink: 0;">gavel</span>
+                <div><b>Chấp nhận điều khoản:</b> Sử dụng dịch vụ đồng nghĩa bạn đồng ý toàn bộ chính sách trên.</div>
+              </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--text-muted); font-style: italic;">
+              Chính sách có hiệu lực từ ngày 10/01/2026 • Hopper cam kết thực hiện nghiêm túc bởi<br>
+              <strong style="color: #fff;">Võ Minh Phát 
+                <span class="material-symbols-rounded verified-badge" style="font-size: 22px; vertical-align: middle;">verified</span>
+              </strong>
+            </p>
+          </div>
+        </div>
+
+        <div id="tab-download" class="tab-content">
+          <div class="tab-header animate-up">
+            <h1>Tải Ứng Dụng Hopper</h1>
+            <p>Phiên bản dành riêng cho Normal & Plus</p>
+          </div>
+
+          <div class="download-section">
+            <div class="download-card animate-up delay-1">
+              <div class="download-title">Bản Thường (Normal/Free)</div>
+              <div style="margin:20px 0; color:var(--text-muted);font-size:15px;">
+                <strong>Phiên bản:</strong> 17 Free<br>
+                <strong>Dung lượng file:</strong> ≈ 45 MB<br>
+                <strong>Cập nhật:</strong> Ngày 9 Tháng 1 Năm 2026<br>
+                <strong>Yêu cầu:</strong> Android 7.0 trở lên
+              </div>
+              <a href="https://beacons.ai/shinmod" download class="download-btn"> 
+                <span class="material-symbols-rounded">download</span> TẢI BẢN THƯỜNG (Miễn phí) 
+              </a>
+              <div style="margin-top:16px;font-size:13px;color:var(--text-muted);line-height:1.5;">
+                Bản Free có giới hạn tính năng .không có tính năng VIP (Cấu hình VPN , nút nổi , TeleKill,...).<br>Chỉ tải từ link chính thức để tránh mã độc từ các Cracked
+              </div>
+            </div>
+
+            <div class="download-card animate-up delay-2">
+              <div class="download-title">Bản Plus (Premium)</div>
+              <div style="margin:20px 0; color:var(--text-muted);font-size:15px;">
+                <strong>Phiên bản:</strong> 17 Plus<br>
+                <strong>Dung lượng file:</strong> ≈ 45 MB<br>
+                <strong>Cập nhật:</strong> Tháng 09/01/2026<br>
+                <strong>Yêu cầu:</strong> Android 7.0 trở lên
+              </div>
+              <a href="https://beacons.ai/shinmod" download class="download-btn"> 
+                <span class="material-symbols-rounded">star</span> TẢI BẢN PLUS 
+              </a>
+              <div style="margin-top:16px;font-size:13px;background:rgba(16,185,129,0.12);border:1px solid #10b981;border-radius:12px;color:#10b981;padding:12px;">
+                Bản Plus yêu cầu key Premium để mở full tính năng (Cấu hình VPN , TeleKill , nhiều nút , các tính năng cơ bản).<br>Đã có key? Dán vào app sau khi cài.
+              </div>
+            </div>
+          </div>
+
+          <p style="text-align:center; color:var(--text-muted); margin-top:40px; font-size:15px;"> Đã tải xong? Cài đặt → Mở app → Vào phần License để dán key.<br> Chưa có key? Xem tab <strong>License Manager</strong> hoặc <strong>Nâng cấp VIP</strong> để mua ngay. </p>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="music-player">
+    <div class="track-info">
+      <div class="track-title" id="trackTitle">Hopper Chill Vibes - Cyberpunk Lofi</div>
+      <div class="track-time">
+        <span id="currentTime">0:00</span> /
+        <span id="duration">1:04</span>
+      </div>
+    </div>
+    <div class="controls">
+      <button onclick="skip(-10)"><span class="material-symbols-rounded">skip_previous</span></button>
+      <button id="playPauseBtn" onclick="togglePlay()"><span class="material-symbols-rounded" id="playIcon">play_arrow</span></button>
+      <button onclick="skip(10)"><span class="material-symbols-rounded">skip_next</span></button>
+    </div>
+    <div class="progress-container">
+      <div class="progress" id="progressBar">
+        <div class="progress-bar" id="progress"></div>
+      </div>
+    </div>
+    <div class="volume-container">
+      <span class="material-symbols-rounded">volume_up</span>
+      <input type="range" min="0" max="1" step="0.01" value="0.5" id="volumeSlider" class="volume-slider">
+    </div>
+  </div>
+
+  <audio id="audioPlayer" controls>
+  <source src="https://raw.githubusercontent.com/hopperconsolekey/hopperconsolekey/main/a21a75afdb59335de820770f1a491dcb.mp4" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
